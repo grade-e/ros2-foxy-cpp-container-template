@@ -1,4 +1,4 @@
-# ros2-humble-cpp-container-template
+# ros2-foxy-cpp-container-template
 
 ## Build
 

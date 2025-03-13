@@ -1,10 +1,10 @@
 # Base image
-FROM ros:humble
+FROM ros:foxy
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
-    ros-humble-rclcpp \
-    ros-humble-std-msgs \
+    ros-foxy-rclcpp \
+    ros-foxy-std-msgs \
     python3-colcon-common-extensions \
     build-essential && \
     rm -rf /var/lib/apt/lists/*
@@ -17,7 +17,7 @@ RUN mkdir -p src
 COPY ./talker_cpp /root/ros2_ws/src/talker_cpp
 
 # Build package
-RUN . /opt/ros/humble/setup.sh && \
+RUN . /opt/ros/foxy/setup.sh && \
     colcon build --packages-select talker_cpp
 
 # Source entrypoint
