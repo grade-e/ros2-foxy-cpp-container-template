@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>talker_cpp</name>
+  <version>0.0.0</version>
+  <description>ROS2 cpp example package using talker</description>
+  <maintainer email="jwsung91@gmail.com">Jinwoo Sung</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>launch</depend>
+  <depend>launch_ros</depend>
+
+    <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
