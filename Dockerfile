@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y \
     ros-foxy-rclcpp \
     ros-foxy-std-msgs \
     python3-colcon-common-extensions \
+    clang-format \
     build-essential && \
     rm -rf /var/lib/apt/lists/*
 
@@ -15,10 +16,13 @@ RUN mkdir -p src
 
 # Copy package
 COPY ./talker_cpp /root/ros2_ws/src/talker_cpp
+COPY .vscode /root/ros2_ws/.vscode
 
-# Build package
-RUN . /opt/ros/foxy/setup.sh && \
-    colcon build --packages-select talker_cpp
+# Source ROS 2 and build
+RUN /bin/bash -c "source /opt/ros/foxy/setup.bash && colcon build --packages-select talker_cpp"
+
+# Ensure `install/setup.bash` exists
+RUN test -f /root/ros2_ws/install/setup.bash || (echo 'Build failed: setup.bash not found' && exit 1)
 
 # Source entrypoint
 COPY entrypoint.sh /entrypoint.sh

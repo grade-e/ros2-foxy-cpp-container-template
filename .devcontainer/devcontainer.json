@@ -1,0 +1,30 @@
+{
+    "name": "ROS2 Foxy Docker",
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "context": ".."
+    },
+    "workspaceFolder": "/root/ros2_ws",
+    "runArgs": [
+        "--net=host",
+        "--privileged"
+    ],
+    "remoteUser": "root",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            },
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cpptools-extension-pack",
+                "ms-python.python",
+                "ms-vscode.cmake-tools",
+                "ms-azuretools.vscode-docker",
+                "xaver.clang-format",
+                "ms-python.black-formatter"
+            ]
+        }
+    },
+    "postCreateCommand": "bash -c 'source /opt/ros/foxy/setup.bash && colcon build'"
+}
