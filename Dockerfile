@@ -17,6 +17,8 @@ RUN mkdir -p src
 # Copy package
 COPY ./talker_cpp /root/ros2_ws/src/talker_cpp
 COPY .vscode /root/ros2_ws/.vscode
+COPY .clang-format /root/ros2_ws/.clang-format
+COPY .cmake-format.py /root/ros2_ws/.cmake-format.py
 
 # Source ROS 2 and build
 RUN /bin/bash -c "source /opt/ros/foxy/setup.bash && colcon build --packages-select talker_cpp"
