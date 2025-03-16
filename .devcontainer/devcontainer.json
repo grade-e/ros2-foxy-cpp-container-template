@@ -9,6 +9,9 @@
         "--net=host",
         "--privileged"
     ],
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/root/ros2_ws,type=bind"
+    ],
     "remoteUser": "root",
     "customizations": {
         "vscode": {
